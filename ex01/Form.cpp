@@ -29,13 +29,13 @@ Form&	Form::operator=(Form const &form) {
 	return *this;
 }
 
-void Form::beSigned(Bureaucrat b){
-	if (b.getGrade() <= this->getSignatureGrade()){
+void Form::beSigned(Bureaucrat *b){
+	if (b->getGrade() <= this->getSignatureGrade()){
 		if (this->_isSigned == 1)
-			b.signForm(0, *this, "Form is already signed.");
+			b->signForm(0, *this, "form is already signed");
 		else {
 			this->_isSigned = 1;
-			b.signForm(1, *this);
+			b->signForm(1, *this);
 		}
 	} else {
 		throw(Bureaucrat::GradeTooLowException());

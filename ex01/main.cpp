@@ -6,81 +6,57 @@
 /*   By: jtollena <jtollena@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 11:41:54 by jtollena          #+#    #+#             */
-/*   Updated: 2024/08/19 12:38:17 by jtollena         ###   ########.fr       */
+/*   Updated: 2024/08/19 13:31:38 by jtollena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int	main(){
 	try{
-		Bureaucrat("test", 1000);
-	}catch(const Bureaucrat::GradeTooHighException & e){
+		Form f = Form("form0", 500, 1);
+	}catch(const std::exception & e){
+		std::cerr << "0" <<e.what() << std::endl;
+	}
+	try{
+		Form f = Form("form1", 1, 0);
+	}catch(const std::exception & e){
 		std::cerr << "1" <<e.what() << std::endl;
-	}catch(const Bureaucrat::GradeTooLowException & e){
-		std::cerr << "1" <<e.what() << std::endl;
-	} 
+	}
+
 	try{
-		Bureaucrat a = Bureaucrat("test2", 10);
-		std::cout << a;
-	}catch(const Bureaucrat::GradeTooHighException & e){
+		Bureaucrat b = Bureaucrat("test2", 10);
+		std::cout << b;
+		Form f = Form("form2");
+		f.beSigned(&b);
+	}catch(const std::exception & e){
 		std::cerr << "2" <<e.what() << std::endl;
-	}catch(const Bureaucrat::GradeTooLowException & e){
-		std::cerr << "2" <<e.what() << std::endl;
-	} 
+	}
+
+	Bureaucrat b = Bureaucrat("test3", 10);
+	Form f = Form("form3", 1, 9);
 	try{
-		Bureaucrat a = Bureaucrat("test3");
-		std::cout << a;
-		a.decrementGrade();
-		std::cout << a;
-	}catch(const Bureaucrat::GradeTooHighException & e){
+		std::cout << b;
+		f.beSigned(&b);
+	}catch(const std::exception & e){
 		std::cerr << "3" <<e.what() << std::endl;
-	}catch(const Bureaucrat::GradeTooLowException & e){
+	}
+	b.incrementGrade();
+	try{
+		f.beSigned(&b);
+	}catch(const std::exception & e){
 		std::cerr << "3" <<e.what() << std::endl;
-	} 
+	}
+
 	try{
-		Bureaucrat a = Bureaucrat("test4");
-		a.incrementGrade();
-	}catch(const Bureaucrat::GradeTooHighException & e){
+		Bureaucrat b = Bureaucrat("test4", 10);
+		Bureaucrat b40 = Bureaucrat("test40", 5);
+		std::cout << b;
+		Form f = Form("form4", 140, 150);
+		f.beSigned(&b);
+		f.beSigned(&b40);
+	}catch(const std::exception & e){
 		std::cerr << "4" <<e.what() << std::endl;
-	}catch(const Bureaucrat::GradeTooLowException & e){
-		std::cerr << "4" <<e.what() << std::endl;
-	} 
-	try{
-		Bureaucrat a = Bureaucrat("test5", 1);
-		a.incrementGrade();
-	}catch(const Bureaucrat::GradeTooHighException & e){
-		std::cerr << "5" <<e.what() << std::endl;
-	}catch(const Bureaucrat::GradeTooLowException & e){
-		std::cerr << "5" <<e.what() << std::endl;
-	} 
-	try{
-		Bureaucrat a = Bureaucrat("test6", 2);
-		a.incrementGrade();
-	}catch(const Bureaucrat::GradeTooHighException & e){
-		std::cerr << "6" <<e.what() << std::endl;
-	}catch(const Bureaucrat::GradeTooLowException & e){
-		std::cerr << "6" <<e.what() << std::endl;
-	} 
-	try{
-		Bureaucrat a = Bureaucrat("test7", 1);
-		std::cout << a;
-		a.decrementGrade();
-		std::cout << a;
-		a.incrementGrade();
-		std::cout << a;
-		a.incrementGrade();
-		std::cout << a;
-	}catch(const Bureaucrat::GradeTooHighException & e){
-		std::cerr << "7" <<e.what() << std::endl;
-	}catch(const Bureaucrat::GradeTooLowException & e){
-		std::cerr << "7" <<e.what() << std::endl;
-	} 
-	try{
-		Bureaucrat a = Bureaucrat("test8", -5);
-	}catch(const Bureaucrat::GradeTooHighException & e){
-		std::cerr << "8" <<e.what() << std::endl;
-	}catch(const Bureaucrat::GradeTooLowException & e){
-		std::cerr << "8" <<e.what() << std::endl;
-	} 
+	}
 }
