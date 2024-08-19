@@ -6,7 +6,7 @@
 #    By: jtollena <jtollena@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/02 23:04:50 by lolemmen          #+#    #+#              #
-#    Updated: 2024/08/19 14:19:26 by jtollena         ###   ########.fr        #
+#    Updated: 2024/08/19 15:17:25 by jtollena         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,9 +35,9 @@ SRC = \
 	 Bureaucrat.cpp \
 	 AForm.cpp \
 	 PresidentialPardonForm.cpp \
-	 main.cpp
-#  RobotomyRequestForm.cpp \
-#  ShrubberyCreationForm.cpp \
+	 main.cpp \
+ 	 RobotomyRequestForm.cpp \
+ 	 ShrubberyCreationForm.cpp
 #  main.cpp
 	
 # **************************************************************************** #

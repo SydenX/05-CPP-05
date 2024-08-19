@@ -14,9 +14,12 @@ class PresidentialPardonForm: public AForm {
 		
 	public:
 		PresidentialPardonForm();
+		PresidentialPardonForm(std::string target);
 		~PresidentialPardonForm();
 		PresidentialPardonForm(PresidentialPardonForm const &presidentialpardonform);
 		PresidentialPardonForm& 	operator=(PresidentialPardonForm const&);
+		std::string	const getTarget() const;
+		void beExecuted(Bureaucrat const &executor) const;
 };
 
 #endif

@@ -2,8 +2,8 @@
 #include "PresidentialPardonForm.hpp"
 
 //Constructor
-PresidentialPardonForm::PresidentialPardonForm() {
-}
+PresidentialPardonForm::PresidentialPardonForm(): AForm("PresidentialPardon", (5), (25)), _target("NOT A TARGET") {}
+PresidentialPardonForm::PresidentialPardonForm(std::string target): AForm("PresidentialPardon", (5), (25)), _target(target) {}
 
 //Destructor
 PresidentialPardonForm::~PresidentialPardonForm() {
@@ -16,7 +16,13 @@ PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &pre
 
 //Copy-Assignment Operator Overload
 PresidentialPardonForm&	PresidentialPardonForm::operator=(PresidentialPardonForm const &presidentialpardonform){
-
 	return *this;
 }
 
+std::string	const PresidentialPardonForm::getTarget() const {
+	return this->_target;
+}
+
+void PresidentialPardonForm::beExecuted(Bureaucrat const &executor) const {
+	std::cout << this->getTarget() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+}
