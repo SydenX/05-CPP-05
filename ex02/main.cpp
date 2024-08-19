@@ -6,7 +6,7 @@
 /*   By: jtollena <jtollena@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 11:41:54 by jtollena          #+#    #+#             */
-/*   Updated: 2024/08/19 15:18:01 by jtollena         ###   ########.fr       */
+/*   Updated: 2024/08/19 15:50:42 by jtollena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	main(){
 	try{
 		Bureaucrat b = Bureaucrat("test5", 1);
 		std::cout << b;
-		RobotonmyRequestForm f = RobotonmyRequestForm("form5");
+		RobotomyRequestForm f = RobotomyRequestForm("form5");
 		b.signForm(f);
 		b.executeForm(f);
 	}catch(const std::exception & e){

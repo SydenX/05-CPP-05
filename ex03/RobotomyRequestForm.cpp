@@ -2,8 +2,8 @@
 #include "RobotomyRequestForm.hpp"
 
 //Constructor
-RobotomyRequestForm::RobotomyRequestForm(): AForm("RobotonmyRequest", (45), (72)), _target("NOT A TARGET") {}
-RobotomyRequestForm::RobotomyRequestForm(std::string target): AForm("RobotonmyRequest", (45), (72)), _target(target) {}
+RobotomyRequestForm::RobotomyRequestForm(): AForm("RobotomyRequest", (45), (72)), _target("NOT A TARGET") {}
+RobotomyRequestForm::RobotomyRequestForm(std::string target): AForm("RobotomyRequest", (45), (72)), _target(target) {}
 
 //Destructor
 RobotomyRequestForm::~RobotomyRequestForm() {
@@ -26,7 +26,7 @@ std::string	const RobotomyRequestForm::getTarget() const {
 
 void RobotomyRequestForm::beExecuted(Bureaucrat const &executor) const {
 	(void)executor;
-	std::cout << "zZZZZZZZZZZZz" << std::endl;
+	std::cout << "zZZZZZZZZZZZz MAKING NOISE" << std::endl;
 	srand(time(0));
 	int random = (rand() % (2 - 1 + 1)) + 1;
 	if (random == 1)

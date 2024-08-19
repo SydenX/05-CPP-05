@@ -50,6 +50,14 @@ void	Bureaucrat::decrementGrade() {
 	setGrade(this->_grade+1);
 }
 
+void	Bureaucrat::signForm(AForm& form) {
+	form.beSigned(*this);
+}
+
+void	Bureaucrat::executeForm(AForm& form) {
+	form.execute(*this);
+}
+
 const char *Bureaucrat::GradeTooHighException::what(void) const throw (){
 	return ("Grade too high (max 1).");
 }
