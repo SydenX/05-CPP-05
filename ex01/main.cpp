@@ -6,7 +6,7 @@
 /*   By: jtollena <jtollena@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 11:41:54 by jtollena          #+#    #+#             */
-/*   Updated: 2024/08/19 13:31:38 by jtollena         ###   ########.fr       */
+/*   Updated: 2024/08/19 14:33:28 by jtollena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(){
 		Bureaucrat b = Bureaucrat("test2", 10);
 		std::cout << b;
 		Form f = Form("form2");
-		f.beSigned(&b);
+		b.signForm(f);
 	}catch(const std::exception & e){
 		std::cerr << "2" <<e.what() << std::endl;
 	}
@@ -38,13 +38,13 @@ int	main(){
 	Form f = Form("form3", 1, 9);
 	try{
 		std::cout << b;
-		f.beSigned(&b);
+		b.signForm(f);
 	}catch(const std::exception & e){
 		std::cerr << "3" <<e.what() << std::endl;
 	}
 	b.incrementGrade();
 	try{
-		f.beSigned(&b);
+		b.signForm(f);
 	}catch(const std::exception & e){
 		std::cerr << "3" <<e.what() << std::endl;
 	}
@@ -54,8 +54,8 @@ int	main(){
 		Bureaucrat b40 = Bureaucrat("test40", 5);
 		std::cout << b;
 		Form f = Form("form4", 140, 150);
-		f.beSigned(&b);
-		f.beSigned(&b40);
+		b.signForm(f);
+		b40.signForm(f);
 	}catch(const std::exception & e){
 		std::cerr << "4" <<e.what() << std::endl;
 	}

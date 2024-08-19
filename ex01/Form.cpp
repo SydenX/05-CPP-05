@@ -29,16 +29,16 @@ Form&	Form::operator=(Form const &form) {
 	return *this;
 }
 
-void Form::beSigned(Bureaucrat *b){
-	if (b->getGrade() <= this->getSignatureGrade()){
+void Form::beSigned(Bureaucrat const &executor){
+	if (executor.getGrade() <= this->getSignatureGrade()){
 		if (this->_isSigned == 1)
-			b->signForm(0, *this, "form is already signed");
+			std::cout << executor.getName() << " couldn't sign " << this->getName() << " because the form is already signed." << std::endl;
 		else {
 			this->_isSigned = 1;
-			b->signForm(1, *this);
+			std::cout << executor.getName() << " signed " << this->getName() << std::endl;
 		}
 	} else {
-		throw(Bureaucrat::GradeTooLowException());
+		throw(Form::GradeTooLowException());
 	}
 }
 
