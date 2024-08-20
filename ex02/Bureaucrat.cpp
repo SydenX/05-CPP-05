@@ -54,7 +54,7 @@ void	Bureaucrat::signForm(AForm& form) {
 	form.beSigned(*this);
 }
 
-void	Bureaucrat::executeForm(AForm& form) {
+void	Bureaucrat::executeForm(AForm const & form) {
 	form.execute(*this);
 }
 
