@@ -60,11 +60,11 @@ int Form::getSignatureGrade() const {
 }
 
 const char *Form::GradeTooHighException::what() const throw() {
-	return ("Grade too high.");
+	return ("Grade too high to execute or sign.");
 }
 
 const char *Form::GradeTooLowException::what() const throw() {
-	return ("Grade too low.");
+	return ("Grade too low to execute or sign.");
 }
 
 std::ostream &operator<<(std::ostream &output, const Form &form){

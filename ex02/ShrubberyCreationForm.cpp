@@ -41,17 +41,19 @@ void drawTree(std::ofstream &file, int height){
     }
 }
 
-void ShrubberyCreationForm::beExecuted(Bureaucrat const &executor) const {
+void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
     (void)executor;
-	std::ofstream file("asciitrees.txt");
-	if (!file.is_open())
-        return ;
-	drawTree(file, 5);
-	drawTree(file, 10);
-	drawTree(file, 15);
-	file.close();
-}
-
-const char *ShrubberyCreationForm::CannotCreateOpenFile::what() const throw() {
-	return ("Error while trying to access/create the intended file.");
+    if (this->isSigned()){
+		if (executor.getGrade() <= this->getExecutionGrade()){
+            std::ofstream file(this->_target + "_shrubbery");
+            if (!file.is_open())
+                return ;
+            drawTree(file, 5);
+            drawTree(file, 10);
+            drawTree(file, 15);
+            file.close();
+		} else
+			throw(AForm::GradeTooLowException());
+	} else
+		throw(AForm::FormNotSignedException());
 }

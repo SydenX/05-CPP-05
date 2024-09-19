@@ -24,13 +24,19 @@ std::string	const RobotomyRequestForm::getTarget() const {
 	return this->_target;
 }
 
-void RobotomyRequestForm::beExecuted(Bureaucrat const &executor) const {
+void RobotomyRequestForm::execute(Bureaucrat const &executor) const {
 	(void)executor;
-	std::cout << "zZZZZZZZZZZZz" << std::endl;
-	srand(time(0));
-	int random = (rand() % (2 - 1 + 1)) + 1;
-	if (random == 1)
-		std::cout << this->getTarget() << " has been successfully robotomized." << std::endl;
-	else
-		std::cout << this->getTarget() << "'s robotomization has failed." << std::endl;
+	if (this->isSigned()){
+		if (executor.getGrade() <= this->getExecutionGrade()){
+			std::cout << "zZZZZZZZZZZZz MAKING NOISE" << std::endl;
+			srand(time(0));
+			int random = (rand() % (2 - 1 + 1)) + 1;
+			if (random == 1)
+				std::cout << this->getTarget() << " has been successfully robotomized." << std::endl;
+			else
+				std::cout << this->getTarget() << "'s robotomization has failed." << std::endl;
+		} else
+			throw(AForm::GradeTooLowException());
+	} else
+		throw(AForm::FormNotSignedException());
 }
