@@ -6,7 +6,7 @@
 #    By: jtollena <jtollena@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/02 23:04:50 by lolemmen          #+#    #+#              #
-#    Updated: 2024/08/19 16:00:56 by jtollena         ###   ########.fr        #
+#    Updated: 2024/09/19 11:59:14 by jtollena         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,6 +78,7 @@ clean :
 
 fclean : clean
 	$(RM) $(NAME)
+	$(RM) asciitrees.txt
 
 re : fclean all
 

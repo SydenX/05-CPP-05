@@ -29,16 +29,15 @@ AForm *Intern::makeForm(std::string formType, std::string target){
 	while (++p < 3)
 		if (forms[p].compare(formType) == 0)
 			break;
+	if (p < 3)
+		std::cout << "Intern creates " << formType << std::endl;
 	switch(p){
 		case 0:
 			return new RobotomyRequestForm(target);
-			break;
 		case 1:
 			return new ShrubberyCreationForm(target);
-			break;
 		case 2:
 			return new PresidentialPardonForm(target);
-			break;
 		default:
 			std::cerr << formType << " is not a valid Form." << std::endl;
 	}

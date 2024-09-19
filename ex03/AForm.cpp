@@ -70,11 +70,11 @@ int AForm::getSignatureGrade() const {
 }
 
 const char *AForm::GradeTooHighException::what() const throw() {
-	return ("Grade too high (max 1).");
+	return ("Grade too high to execute or sign.");
 }
 
 const char *AForm::GradeTooLowException::what() const throw() {
-	return ("Grade too low (min 150).");
+	return ("Grade too low to execute or sign.");
 }
 
 const char *AForm::FormNotSignedException::what() const throw() {
